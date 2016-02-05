@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pharmacybay</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Montserrat:400,700' %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<title>Site</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%= stylesheet_link_tag "mobiscroll.custom-2.17.1.min", media: "all", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
-<body>
-	<%= render 'shared/header' %>
-	<div class="container">
-		<%= yield %>
-	</div>
-
+<body class="baseline-grid">
+	<%= render 'shared/nav' %>
+	<%= yield %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<% @filter_title = [ 'Price range', 'Stops', 'Airlines', 'Baggages', 'Payment', 'Departure flights', 'Return flights' ] %>
+
+<ul id="list">
+	<% @filter_title.each do |d| %>
+	<li>
+		<%= d %>
+		<ul>
+			<li>
+				<div class="checkbox-list" mbsc-enhance>
+					<% if d == 'Price range' %>
+						<label>
+							Price
+							<input type="range" value="100" min="0" max="500" data-tooltip="true" data-step-labels="[0, 500]">
+						</label>
+					<% elsif d == 'Departure flights' || d == 'Return flights' %>
+						<label>
+							Departure
+							<input type="range" value="100" min="0" max="500" data-tooltip="true" data-step-labels="[0, 500]">
+							<input type="range" value="370" min="0" max="500" data-tooltip="true" data-step-labels="[0, 500]">
+						</label>
+						<label>
+							Arrival
+							<input type="range" value="100" min="0" max="500" data-tooltip="true" data-step-labels="[0, 500]">
+							<input type="range" value="470" min="0" max="500" data-tooltip="true" data-step-labels="[0, 500]">
+						</label>
+						<label>
+							Duration
+							<input type="range" value="100" min="0" max="500" data-tooltip="true" data-step-labels="[0, 500]">
+						</label>
+					<% else %>
+						<% (1..6).each do |p| %>
+						<label>
+							<%= check_box_tag (:p) %>
+							Option <%= p %>
+							<span class="mbsc-desc">from <%= p %>0€</span>
+						</label>
+						<% end %>
+					<% end %>
+				</div>
+			</li>
+		</ul>
+	</li>
+	<% end %>
+</ul>
