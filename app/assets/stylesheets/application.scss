@@ -47,11 +47,11 @@ $headings-color: #353a3e;
 $link-color: #1990c6;
 $link-hover-color: #1579a6;
 
-$border-color: #d9d9d9;
+$border-color: #e1e1e1;
 
 // Background color
 
-$body-bg: #fafafa;
+$body-bg: #fff;
 
 // Typography
 
@@ -222,6 +222,11 @@ label{
 // 	@include rem(margin-bottom, $base-line-height * 2);
 // }
 
+.list-unstyled{
+	padding-left: 0;
+	list-style: none;
+}
+
 .baseline-grid {
 	background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px);
 	background-position: left -1px;
@@ -230,23 +235,28 @@ label{
 }
 
 //
-// 3. Layout
+// Sidebar
 // --------------------------------------------------
 
-#sidebar{
-	position: absolute;
-	left: 0;
-	top: 112px;
-	bottom: 0;
-	z-index: 4;
-	padding: 0;
-	height: 100%;
-	overflow-y: auto;
-	background-color: #fff;
+$sidebar-bg: #fafafa;
 
-	@media (min-width: $grid-float-breakpoint){
+#sidebar{
+	position: relative;
+	height: 100vh;
+	padding-left: 0;
+	padding-right: 4%;
+
+	&:after{
+		content: "";
+		display: block;
+		width: 200%;
+		position: absolute;
+		top: 0;
+		left: -100%;
+		bottom: 0;
+		background: $sidebar-bg;
+		z-index: -1;
 		border-right: 1px solid $border-color;
-		top: 64px;
 	}
 
 	.checkbox-list{
@@ -255,8 +265,20 @@ label{
 	}
 }
 
+#sidebar{
+	.mbsc-lv-airtickets-default .mbsc-lv-item,
+	.mbsc-airtickets-default.mbsc-form{
+		background: $sidebar-bg;
+	}
+}
+
+//
+// Main
+// --------------------------------------------------
+
 #main{
-	padding: 0;
+	padding-left: 6%;
+	padding-right: 0;
 }
 
 

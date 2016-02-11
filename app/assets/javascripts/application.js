@@ -41,7 +41,7 @@ $(function(){
     });    
 
     $('#tabMenu').mobiscroll().menustrip({
-        display: 'top',
+        display: 'inline',
         context: 'main',
         type: 'tabs',
         onItemTap: function (item, inst) {

@@ -1,0 +1,21 @@
+<% if tabsStyle == 'mobiscroll' %>
+	<!-- Mobiscroll Tabs -->
+	<div class="mbsc-padding" mbsc-enhance>
+		<% tabsNumber.each_with_index do |p, index| %>
+		<div id="tab-<%= p %>" class="md-tab-h <% if index == 0 %>md-tab-sel<% end %>">
+			<h3>Title <%= p %></h3>
+			<p>Fri, Jan 1 - Mon, Jan 4, Round trip</p>
+		</div>
+		<% end %>
+	</div>
+<%else%>
+	<!-- Bootstrap Tabs -->
+	<div class="tab-content">
+		<% tabsNumber.each_with_index do |p, index| %>
+		<div role="tabpanel" class="tab-pane <% if index == 0 %>active<% end %>" id="tab-<%= p %>">
+			<h3>Title <%= p %></h3>
+			<p>Fri, Jan 1 - Mon, Jan 4, Round trip</p>
+		</div>
+		<% end %>
+	</div>
+<% end %>

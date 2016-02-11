@@ -1,0 +1,17 @@
+<% if tabsStyle == 'mobiscroll' %>
+	<!-- Mobiscroll Tabs -->
+	<ul id="tabMenu" style="display:none;height: 48px;">
+		<% tabsNumber.each_with_index do |d, index| %>
+			<li <% if index == 0 %>data-selected="true"<% end %> data-tab="tab-<%= d %>" >ATH - SKG: <%= d %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<!-- Bootstrap Tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<% tabsNumber.each_with_index do |d, index| %>
+			<li role="presentation" class="<% if index == 0 %>active<% end %>">
+				<a href="#tab-<%= d %>" aria-controls="tab-<%= d %>" role="tab" data-toggle="tab">ATH - SKG: <%= d %></a>
+			</li>
+		<% end %>
+	</ul>
+<% end %>

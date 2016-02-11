@@ -1,24 +1,15 @@
-<% @var = 1..5 %>
+<% tabsNumber = 1..5 %>
+<% tabsStyle = 'mobiscrolldd' %>
+<% listStyle = 'mobiscrollll' %>
 
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div id="sidebar" class="col-md-3 col-xs-12" role="complementary"><%= render 'results/filter' %></div>
-		<div id="main" class="col-md-9 col-md-offset-3 col-xs-12" role="main">
-			<ul id="tabMenu" style="display:none;height: 48px;">
-				<% @var.each_with_index do |d, index| %>
-					<li <% if index == 0 %>data-selected="true"<% end %> data-tab="tab-<%= d %>" >ATH - SKG: <%= d %></li>
-				<% end %>
-			</ul>
-			<div class="mbsc-padding" mbsc-enhance>
-				<% @var.each_with_index do |p, index| %>
-					<div id="tab-<%= p %>" class="md-tab-h <% if index == 0 %>md-tab-sel<% end %>">
-						<h3>Title <%= p %></h3>
-						<p>Fri, Jan 1 - Mon, Jan 4, Round trip</p>
-					</div>
-				<% end %>
-			</div>
-			<div class="md-prev md-np mbsc-ic mbsc-ic-arrow-left5"></div>
-			<div class="md-next md-np md-n  mbsc-ic mbsc-ic-arrow-right5"></div>
+		<div id="sidebar" class="col-md-3" role="complementary">
+			<%= render 'results/filter', listStyle: listStyle %>
+		</div>
+		<div id="main" class="col-md-9" role="main">
+			<%= render 'results/tabs', tabsNumber: tabsNumber, tabsStyle: tabsStyle %>
+			<%= render 'results/tabs_content', tabsNumber: tabsNumber, tabsStyle: tabsStyle %>
 		</div>
 	</div>
 </div>
