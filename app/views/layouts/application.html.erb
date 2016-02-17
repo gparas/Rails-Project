@@ -9,6 +9,9 @@
 </head>
 <!-- <body class="baseline-grid"> -->
 <body>
+	<div class="toggleWrapper">
+		<a id="btnToggleGrid" class="btnToggleGrid" href="javascript:void(0)">Turn Grid On</a>
+	</div>
 	<%= render 'shared/nav' %>
 	<%= yield %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>

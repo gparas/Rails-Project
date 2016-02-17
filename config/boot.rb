@@ -10,7 +10,7 @@ module Rails
   class Server
     alias :default_options_bk :default_options
     def default_options
-      default_options_bk.merge!(Host: '192.168.70.10')
+      default_options_bk.merge!(Host: '192.168.70.18')
     end
   end
 end  

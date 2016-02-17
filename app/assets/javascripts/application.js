@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require gutenberg
 //= require mobiscroll.custom-2.17.1.min
 
 $.mobiscroll.setDefaults({
@@ -26,19 +27,19 @@ $(function(){
     $('#list').mobiscroll().listview({
         stages: {
             right: [
-                {
-                    key: 'stage1',
-                    color: '#DE3D18', 
-                    text: 'Reset',
-                    icon: 'remove'
+            {
+                key: 'stage1',
+                color: '#DE3D18', 
+                text: 'Reset',
+                icon: 'remove'
                     // action: function (li, inst) {
                     //     inst.remove(li);
                     //     return false;
                     // }
                 }
-            ]
-        }
-    });    
+                ]
+            }
+        });    
 
     $('#tabMenu').mobiscroll().menustrip({
         display: 'inline',
@@ -55,8 +56,8 @@ $(function(){
     });
 
     $('.md-prev').off().click(function () {
-     $('#tabMenu').mobiscroll('prev');
- });
+       $('#tabMenu').mobiscroll('prev');
+   });
 
     $('.md-apps-ul').mobiscroll().listview({ 
         enhance: true,
@@ -64,4 +65,7 @@ $(function(){
         swipe: false
     });
 });
+
+// Toggle Grid Functionality
+document.getElementById("btnToggleGrid").onclick = toggleGrid;
 
