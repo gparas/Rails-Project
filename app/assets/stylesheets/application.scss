@@ -1,50 +1,40 @@
+@import "gutenberg/gutenberg";
+
 //
 // Variables
 // --------------------------------------------------
-$theme: OpenSans;
 
-$color-font-body: red;
 
 // Colors
 
-$text-color: #454545;
-$headings-color: #353a3e;
-
-$link-color: #1990c6;
-$link-hover-color: #1579a6;
-
 $border-color: #e1e1e1;
 
-// Background color
-
-$body-bg: #fff;
-
 // Typography
+$font-family-base: $font-body;
+$line-height-base: $line-height;
 
+// Navs
+$nav-link-padding: #{ .5 * $leading + 'px'} #{ 1 * $leading + 'px'};
 
-//
-// Mixin
-// --------------------------------------------------
+// Navbar
+$navbar-height: #{ 3 * $leading + 'px'};
+$navbar-margin-bottom: 0;
+$navbar-padding-vertical: #{ 1 * $leading + 'px'};
 
-@mixin rem($key, $value){
-	#{$key}: strip-unit($value) + px;
-	#{$key}: strip-unit($value) / 16 + rem;
-}
 
 //
 // Imports
 // --------------------------------------------------
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
-
-@import "gutenberg/gutenberg";
 
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
+// Reset and dependencies
+@import "bootstrap/normalize";
+
 // Core CSS
-// @import "bootstrap/scaffolding";
 @import "bootstrap/grid";
 @import "bootstrap/forms";
 
@@ -60,11 +50,77 @@ $body-bg: #fff;
 // 1. Scaffolding
 // --------------------------------------------------
 
+// Reset the box-sizing
 
+* {
+	@include box-sizing(border-box);
+}
+*:before,
+*:after {
+	@include box-sizing(border-box);
+}
+
+// Body reset
+
+body {
+	font-family: $font-family-base;
+	line-height: $line-height-base;
+}
+
+// Links
+
+a{
+	text-decoration: none;
+}
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
 
 //
 // 2. Typography
 // --------------------------------------------------
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: 500;
+}
+
+// Lists
+ul,
+ol {
+	margin-top: 0;
+	@include margin-bottom(1);
+	
+	ul,
+	ol {
+		margin-bottom: 0;
+	}
+}
+
+.list-unstyled{
+	padding-left: 0;
+	list-style: none;
+}
+
+
+//
+// Navbars
+// --------------------------------------------------
+
+.navbar{
+	border: none;
+}
 
 
 //
@@ -76,7 +132,6 @@ $sidebar-bg: #fafafa;
 #sidebar{
 	position: relative;
 	height: 100vh;
-	padding-left: 0;
 	padding-right: 0;
 
 	&:after{
@@ -87,7 +142,7 @@ $sidebar-bg: #fafafa;
 		top: 0;
 		left: -300%;
 		bottom: 0;
-		background: $sidebar-bg;
+		background: rgba($sidebar-bg, .6);
 		z-index: -1;
 		border-right: 1px solid $border-color;
 	}
@@ -101,6 +156,9 @@ $sidebar-bg: #fafafa;
 	}
 
 	.nav > li > a{
+
+		padding-left: 0;
+		padding-right: 0;
 		
 		&:after{
 			content: "\f107";
